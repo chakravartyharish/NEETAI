@@ -1,0 +1,342 @@
+# NEETAI Indian EdTech Context v1.0
+# Comprehensive customizations for the Indian educational technology market
+
+apiVersion: "neetai.customizations/v1"
+kind: "IndianEdTechContext"
+metadata:
+  name: "indian-edtech-customizations"
+  version: "1.0"
+  created: "2024-01-01T00:00:00Z"
+  
+spec:
+  # Market Context and Characteristics
+  market_context:
+    
+    # Indian Education System Structure
+    education_system:
+      competitive_exams:
+        neet:
+          full_name: "National Eligibility cum Entrance Test"
+          target_courses: ["MBBS", "BDS", "AYUSH"]
+          exam_frequency: "annual"
+          exam_months: ["may"]
+          subjects: ["physics", "chemistry", "biology"]
+          total_questions: 200
+          total_marks: 720
+          duration: "3_hours_20_minutes"
+          negative_marking: "yes"
+          language_options: ["english", "hindi", "assamese", "bengali", "gujarati", "kannada", "malayalam", "marathi", "odia", "punjabi", "tamil", "telugu", "urdu"]
+          
+        jee:
+          full_name: "Joint Entrance Examination"
+          variants: ["jee_main", "jee_advanced"]
+          target_courses: ["b.tech", "b.arch", "b.planning"]
+          subjects: ["physics", "chemistry", "mathematics"]
+          
+      school_boards:
+        cbse:
+          full_name: "Central Board of Secondary Education"
+          curriculum_alignment: "national_standards"
+          medium_of_instruction: ["english", "hindi"]
+          
+        state_boards:
+          popular_boards: ["maharashtra", "tamil_nadu", "karnataka", "andhra_pradesh", "west_bengal"]
+          regional_variations: "significant"
+          
+      coaching_ecosystem:
+        major_centers: ["kota", "delhi", "hyderabad", "bangalore", "pune", "mumbai"]
+        market_size: "usd_4_billion"
+        student_population: "5_million_plus"
+        
+    # Demographic and Economic Context
+    demographics:
+      target_student_age: "16_to_20_years"
+      family_involvement: "high_parental_engagement"
+      decision_makers: ["students", "parents", "extended_family"]
+      
+      economic_segments:
+        tier_1_cities:
+          characteristics: ["high_income", "english_proficiency", "tech_savvy"]
+          device_preferences: ["premium_smartphones", "laptops", "tablets"]
+          internet_connectivity: ["high_speed_broadband", "4g_lte"]
+          
+        tier_2_cities:
+          characteristics: ["middle_income", "mixed_language_preference", "growing_tech_adoption"]
+          device_preferences: ["mid_range_smartphones", "budget_laptops"]
+          internet_connectivity: ["moderate_speed_broadband", "3g_4g_mix"]
+          
+        tier_3_rural:
+          characteristics: ["lower_income", "regional_language_preference", "basic_tech_literacy"]
+          device_preferences: ["budget_smartphones", "shared_devices"]
+          internet_connectivity: ["2g_3g", "intermittent_connectivity"]
+          
+    # Cultural and Social Context
+    cultural_factors:
+      family_values:
+        education_priority: "highest"
+        career_aspirations: ["doctor", "engineer", "government_service"]
+        family_honor: "academic_achievement_linked"
+        
+      learning_preferences:
+        study_methods: ["rote_memorization", "competitive_practice", "peer_group_study"]
+        authority_respect: "teacher_reverence_high"
+        collaboration_vs_competition: "competitive_environment_preferred"
+        
+      communication_styles:
+        language_mixing: "hindi_english_code_switching"
+        formal_addressing: "sir_madam_culture"
+        family_updates: "regular_progress_reporting_to_parents"
+        
+  # Technical Infrastructure Adaptations
+  technical_adaptations:
+    
+    # Device and Platform Optimization
+    device_optimization:
+      android_focus:
+        market_share: "95_percent"
+        popular_brands: ["xiaomi", "samsung", "realme", "oppo", "vivo"]
+        ram_constraints: ["2gb_common", "4gb_aspirational", "8gb_premium"]
+        storage_constraints: ["32gb_common", "64gb_standard", "128gb_premium"]
+        
+      ios_considerations:
+        market_share: "3_percent"
+        user_demographics: "urban_affluent"
+        premium_features: "differentiated_experience"
+        
+      performance_targets:
+        budget_devices:
+          app_size: "under_50mb"
+          cold_start: "under_3_seconds"
+          memory_usage: "under_150mb"
+          battery_impact: "minimal"
+          
+        mid_range_devices:
+          enhanced_features: "offline_content", "hd_video", "advanced_analytics"
+          performance_expectations: "smooth_60fps"
+          
+    # Connectivity and Data Considerations  
+    connectivity_optimization:
+      network_conditions:
+        jio_revolution:
+          impact: "affordable_4g_widespread"
+          data_consumption: "increased_significantly"
+          reliability: "variable_by_location"
+          
+        network_distribution:
+          4g_lte: "70_percent_urban", "40_percent_rural"
+          3g: "80_percent_coverage"
+          2g: "95_percent_coverage"
+          
+      data_usage_patterns:
+        monthly_data_allowance: "1gb_to_10gb_typical"
+        peak_usage_hours: ["evening_6pm_to_11pm", "weekend_afternoons"]
+        cost_sensitivity: "high"
+        
+      offline_requirements:
+        content_download: "essential_feature"
+        sync_optimization: "wifi_preferred"
+        storage_efficiency: "compression_critical"
+        
+    # Payment and Monetization Context
+    payment_ecosystem:
+      digital_payment_adoption:
+        upi:
+          penetration: "80_percent_smartphone_users"
+          preferred_apps: ["google_pay", "phonepe", "paytm", "bhim"]
+          transaction_limits: "up_to_1_lakh_per_day"
+          
+        mobile_wallets:
+          popular_options: ["paytm", "phonepe", "amazon_pay", "mobikwik"]
+          usage_patterns: "small_frequent_transactions"
+          
+        traditional_methods:
+          net_banking: "still_significant"
+          credit_cards: "limited_penetration"
+          cash: "fallback_option"
+          
+      pricing_psychology:
+        price_sensitivity: "extremely_high"
+        value_perception: "outcomes_based"
+        family_budget_planning: "annual_education_expense"
+        
+        pricing_strategies:
+          freemium: "essential_for_acquisition"
+          subscription_tiers: ["basic_affordable", "premium_comprehensive"]
+          family_plans: "multiple_child_discounts"
+          scholarship_programs: "merit_based_free_access"
+          
+  # Language and Localization Requirements
+  localization_framework:
+    
+    # Multi-language Support
+    language_strategy:
+      primary_languages:
+        hindi:
+          script: "devanagari"
+          usage_context: "rural_and_urban"
+          content_priority: "high"
+          voice_support: "essential"
+          
+        english:
+          usage_context: "urban_educated"
+          mixing_patterns: "hinglish_common"
+          technical_terminology: "preferred_for_science"
+          
+      regional_languages:
+        high_priority: ["tamil", "telugu", "kannada", "malayalam", "gujarati", "marathi", "bengali", "punjabi"]
+        content_localization: "question_banks", "explanations", "ui_elements"
+        voice_support: "gradual_rollout"
+        
+    # Content Localization Standards
+    content_adaptation:
+      educational_content:
+        curriculum_mapping:
+          state_board_variations: "account_for_differences"
+          local_examples: "region_specific_case_studies"
+          cultural_references: "locally_relevant"
+          
+        question_banks:
+          language_specific: "translated_and_culturally_adapted"
+          difficulty_calibration: "local_competition_standards"
+          explanation_style: "detailed_step_by_step"
+          
+      user_interface:
+        text_localization: "complete_ui_translation"
+        cultural_icons: "locally_recognizable_symbols"
+        color_psychology: "culturally_appropriate_schemes"
+        
+    # Communication Patterns
+    user_communication:
+      family_engagement:
+        parent_notifications: "hindi_english_options"
+        progress_reports: "detailed_family_friendly"
+        achievement_celebrations: "culturally_appropriate"
+        
+      student_interaction:
+        motivational_messaging: "exam_focused_encouragement"
+        peer_comparison: "healthy_competition_framing"
+        goal_setting: "neet_specific_milestones"
+        
+  # Regulatory and Compliance Framework
+  regulatory_compliance:
+    
+    # Data Protection and Privacy
+    data_governance:
+      personal_data_protection_bill:
+        status: "draft_legislation"
+        key_requirements: ["data_localization", "consent_management", "breach_notification"]
+        preparation_strategy: "proactive_compliance"
+        
+      information_technology_act:
+        current_requirements: ["data_security", "cybercrime_prevention"]
+        compliance_obligations: ["incident_reporting", "security_audits"]
+        
+      children_privacy:
+        age_verification: "parental_consent_required_under_18"
+        data_minimization: "educational_purpose_only"
+        special_protections: "enhanced_security_measures"
+        
+    # Educational Regulations
+    educational_compliance:
+      right_to_education:
+        inclusive_access: "disability_accommodations"
+        non_discrimination: "equal_opportunity_regardless_background"
+        
+      consumer_protection:
+        service_quality_standards: "educational_outcomes_accountability"
+        pricing_transparency: "clear_fee_structure"
+        grievance_redressal: "accessible_complaint_mechanisms"
+        
+    # Business and Financial Compliance
+    business_regulations:
+      foreign_direct_investment:
+        educational_sector_limits: "100_percent_fdi_allowed"
+        approval_requirements: "automatic_route_up_to_limits"
+        
+      taxation:
+        goods_services_tax: "18_percent_on_educational_services"
+        exemptions: "certain_educational_content_exempt"
+        
+      financial_regulations:
+        payment_gateway_compliance: "rbi_guidelines"
+        subscription_billing: "automatic_debit_regulations"
+        
+  # Cultural Sensitivity and User Experience
+  cultural_ux_design:
+    
+    # Visual Design Principles
+    design_aesthetics:
+      color_preferences:
+        auspicious_colors: ["saffron", "green", "blue"]
+        avoided_combinations: "culturally_inappropriate_pairings"
+        festival_theming: "seasonal_color_adaptations"
+        
+      iconography:
+        educational_symbols: ["books", "lamps", "lotus", "om"]
+        achievement_representations: "culturally_meaningful_rewards"
+        navigation_metaphors: "familiar_real_world_references"
+        
+    # Interaction Patterns
+    user_behavior_adaptations:
+      respect_hierarchies:
+        teacher_student_dynamics: "formal_respectful_interaction"
+        parent_child_consultation: "family_decision_making_support"
+        
+      community_features:
+        study_groups: "collaborative_competitive_environment"
+        peer_support: "regional_language_groups"
+        success_stories: "aspirational_role_models"
+        
+    # Content Sensitivity
+    cultural_content_guidelines:
+      religious_neutrality: "secular_educational_approach"
+      regional_balance: "pan_indian_representation"
+      socioeconomic_sensitivity: "inclusive_examples_and_scenarios"
+      
+  # Success Metrics and KPIs
+  indian_market_kpis:
+    
+    # Educational Effectiveness
+    learning_outcomes:
+      neet_performance_correlation: "platform_usage_to_exam_scores"
+      retention_through_exam_cycle: "annual_cohort_tracking"
+      regional_performance_variations: "state_wise_effectiveness_analysis"
+      
+    # Market Penetration
+    adoption_metrics:
+      tier_wise_adoption: "urban_vs_rural_penetration"
+      language_preference_distribution: "usage_by_language_choice"
+      device_category_usage: "performance_by_device_type"
+      
+    # Cultural Adaptation Success
+    localization_effectiveness:
+      regional_user_satisfaction: "state_specific_nps_scores"
+      family_engagement_levels: "parent_participation_metrics"
+      cultural_feature_adoption: "usage_of_localized_features"
+      
+    # Business Sustainability
+    financial_metrics:
+      price_point_optimization: "willingness_to_pay_by_segment"
+      payment_method_preferences: "transaction_success_rates"
+      customer_lifetime_value: "multi_year_family_relationships"
+      
+  # Implementation Guidelines
+  implementation_strategy:
+    
+    # Phased Rollout Approach
+    market_entry:
+      phase_1: "tier_1_cities_english_hindi"
+      phase_2: "tier_2_cities_regional_languages"
+      phase_3: "rural_expansion_local_partnerships"
+      
+    # Partnership Strategy
+    local_ecosystem:
+      coaching_institutes: "integration_partnerships"
+      schools: "curriculum_supplement_programs"
+      government: "digital_india_alignment"
+      
+    # Continuous Adaptation
+    market_responsiveness:
+      user_feedback_loops: "regular_cultural_adaptation_reviews"
+      regulatory_monitoring: "compliance_update_mechanisms"
+      competitive_intelligence: "local_market_trend_tracking"

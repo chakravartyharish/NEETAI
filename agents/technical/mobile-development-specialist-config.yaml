@@ -1,0 +1,192 @@
+apiVersion: "neetai.agents/v1"
+kind: "AgentConfiguration"
+metadata:
+  name: "mobile-development-specialist"
+  namespace: "technical"
+  version: "1.0"
+  created: "2024-01-01T00:00:00Z"
+  updated: "2024-01-01T00:00:00Z"
+  
+spec:
+  agent:
+    id: "neetai-mobile-dev-001"
+    type: "technical"
+    category: "mobile_development"
+    specialization: "cross_platform_mobile_development"
+    
+    expertise_areas:
+      - primary: "react_native_development"
+      - secondary: "mobile_performance_optimization"
+      - supporting: "offline_functionality"
+    
+    context:
+      market: "indian_edtech"
+      domain: "neet_preparation"
+      target_users: ["students", "parents", "educators"]
+      languages: ["english", "hindi"]
+      device_targets: ["android_budget", "android_premium", "ios"]
+      
+    resources:
+      cpu_requirement: "1000m"
+      memory_requirement: "2Gi"
+      storage_requirement: "10Gi"
+      
+    dependencies:
+      required_agents: ["performance-engineering-specialist"]
+      optional_agents: ["ai-ml-specialist", "security-specialist"]
+      external_services: ["firebase", "codepush", "crashlytics"]
+      databases: ["sqlite", "realm"]
+      apis: ["neetai_content_api", "neetai_auth_api", "neetai_analytics_api"]
+      
+  capabilities:
+    primary_functions:
+      - name: "develop_cross_platform_features"
+        description: "Create React Native features for iOS and Android platforms"
+        inputs: ["feature_requirements", "design_specifications", "api_contracts"]
+        outputs: ["react_native_components", "platform_specific_implementations"]
+        
+      - name: "optimize_mobile_performance"
+        description: "Optimize app performance for low-end devices"
+        inputs: ["performance_metrics", "device_specifications", "usage_patterns"]
+        outputs: ["optimized_components", "performance_improvements"]
+        
+      - name: "implement_offline_functionality"
+        description: "Build offline-first features for content access"
+        inputs: ["content_types", "sync_requirements", "storage_constraints"]
+        outputs: ["offline_storage_solutions", "sync_mechanisms"]
+        
+    secondary_functions:
+      - name: "mobile_testing_automation"
+        description: "Automated testing for mobile applications"
+        inputs: ["test_scenarios", "device_matrix"]
+        outputs: ["test_suites", "automation_scripts"]
+        
+    integrations:
+      - type: "api"
+        protocol: "rest"
+        authentication: "oauth2"
+        services: ["content_delivery", "user_management", "analytics"]
+      - type: "database"
+        engine: "sqlite"
+        access_pattern: "read_write_sync"
+      - type: "push_notifications"
+        provider: "firebase_fcm"
+        
+  workflows:
+    supported_workflows:
+      - name: "feature_development_workflow"
+        role: "primary_developer"
+        triggers: ["feature_request", "design_approval"]
+        actions: ["code_implementation", "testing", "deployment"]
+        
+      - name: "performance_optimization_workflow"
+        role: "performance_expert"
+        triggers: ["performance_degradation", "new_device_support"]
+        actions: ["analysis", "optimization", "validation"]
+        
+      - name: "offline_sync_workflow"
+        role: "offline_specialist"
+        triggers: ["connectivity_issues", "content_updates"]
+        actions: ["cache_management", "sync_scheduling", "conflict_resolution"]
+        
+  monitoring:
+    health_check:
+      endpoint: "/health/mobile-dev"
+      interval: "30s"
+      timeout: "10s"
+      
+    metrics:
+      - name: "app_crash_rate"
+        type: "percentage"
+        description: "Mobile app crash rate across different devices"
+      - name: "feature_development_velocity"
+        type: "count_per_sprint"
+        description: "Number of features developed per sprint"
+      - name: "offline_sync_success_rate"
+        type: "percentage"
+        description: "Success rate of offline content synchronization"
+      - name: "device_compatibility_coverage"
+        type: "percentage"
+        description: "Percentage of target devices fully supported"
+        
+  compliance:
+    data_protection:
+      gdpr_compliant: true
+      data_retention_policy: "90_days"
+      encryption_required: true
+      local_data_encryption: true
+      
+    educational_standards:
+      curriculum_alignment: "neet_syllabus"
+      content_validation: "expert_review"
+      accessibility_compliance: "wcag_2_1_aa"
+      
+    mobile_standards:
+      app_store_compliance: true
+      google_play_compliance: true
+      security_standards: ["owasp_mobile_top_10"]
+      
+  deployment:
+    environment:
+      production:
+        replicas: 3
+        resources:
+          cpu: "1000m"
+          memory: "2Gi"
+        app_distribution: ["play_store", "app_store", "direct_apk"]
+      staging:
+        replicas: 1
+        resources:
+          cpu: "500m"
+          memory: "1Gi"
+        app_distribution: ["firebase_app_distribution", "testflight"]
+          
+    scaling:
+      auto_scaling: true
+      min_replicas: 2
+      max_replicas: 8
+      target_cpu_utilization: 70
+      
+    mobile_deployment:
+      release_channels: ["production", "beta", "alpha"]
+      update_mechanisms: ["app_store_update", "codepush_update"]
+      rollout_strategy: "staged_rollout"
+      
+  security:
+    authentication:
+      required: true
+      method: "jwt"
+      mobile_specific: "biometric_auth"
+      
+    authorization:
+      rbac_enabled: true
+      permissions: ["mobile_dev_write", "app_deployment", "user_data_access"]
+      
+    encryption:
+      in_transit: true
+      at_rest: true
+      mobile_specific:
+        - "app_transport_security"
+        - "certificate_pinning"
+        - "root_detection"
+        - "jailbreak_detection"
+        
+  indian_market_adaptations:
+    device_optimization:
+      target_devices: ["budget_android_2gb_ram", "mid_range_android_4gb_ram"]
+      performance_targets:
+        - "app_size_under_50mb"
+        - "cold_start_under_3s"
+        - "battery_usage_optimized"
+        
+    connectivity:
+      network_support: ["2g", "3g", "4g", "wifi"]
+      offline_capabilities: ["content_download", "progress_sync", "quiz_completion"]
+      data_usage_optimization: true
+      
+    localization:
+      languages: ["english", "hindi"]
+      cultural_adaptations:
+        - "family_sharing_features"
+        - "parent_monitoring_capabilities"
+        - "regional_festival_schedules"

@@ -188,5 +188,6 @@
       "mobile_optimization",
       "indian_education_context"
     ]
-  }
+  },
+  "kiroAgent.configureMCP": "Enabled"
 }
