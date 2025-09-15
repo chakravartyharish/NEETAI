@@ -15,8 +15,12 @@ export default function AdminDashboard() {
   });
 
   const handleSignOut = async () => {
-    await signOut();
-    window.location.href = '/auth/login';
+    try {
+      await signOut();
+      window.location.href = '/auth/login';
+    } catch (error) {
+      console.error('Failed to sign out:', error);
+    }
   };
 
   return (
@@ -32,7 +36,7 @@ export default function AdminDashboard() {
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-sm text-gray-600">
-                Welcome, {user?.full_name || user?.email}
+                Welcome, {user?.email}
               </span>
               <Button variant="outline" size="sm">
                 Profile

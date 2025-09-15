@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@repo/ui/button';
-import { useAuth } from '@neet/auth';
+import { supabase } from '@neet/database';
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -13,7 +13,6 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const { signIn } = useAuth();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,20 +21,18 @@ export default function LoginPage() {
     setError(null);
 
     try {
-      const { user, error } = await signIn(formData);
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+      });
 
       if (error) {
-        setError(error);
+        setError(error.message);
         return;
       }
 
-      if (user) {
-        if (user.role !== 'admin') {
-          setError('Access denied. Admin privileges required.');
-          return;
-        }
-
-        // Successful admin login
+      if (data.user) {
+        // Successful login
         router.replace('/');
       }
     } catch (err) {

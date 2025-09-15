@@ -4,11 +4,15 @@ import { Button } from '@repo/ui/button';
 import { useAuth } from '@neet/auth';
 
 export default function UnauthorizedPage() {
-  const { signOut, user } = useAuth();
+  const { user, signOut } = useAuth();
 
   const handleSignOut = async () => {
-    await signOut();
-    window.location.href = '/auth/login';
+    try {
+      await signOut();
+      window.location.href = '/auth/login';
+    } catch (error) {
+      console.error('Failed to sign out:', error);
+    }
   };
 
   return (
@@ -35,7 +39,7 @@ export default function UnauthorizedPage() {
                 Signed in as: <strong>{user.email}</strong>
               </p>
               <p className="text-sm text-yellow-600 mt-1">
-                Role: <strong>{user.role}</strong>
+                User ID: <strong>{user.id}</strong>
               </p>
             </div>
           )}

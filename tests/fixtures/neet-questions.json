@@ -1,0 +1,76 @@
+{
+  "physics": [
+    {
+      "id": "PHYS001",
+      "year": 2023,
+      "subject": "Physics",
+      "chapter": "Mechanics",
+      "difficulty": "Medium",
+      "question": "A particle moves in a circle of radius 20 cm with constant speed. If it takes 0.5 seconds to complete half revolution, what is its centripetal acceleration?",
+      "options": {
+        "A": "8π² m/s²",
+        "B": "4π² m/s²", 
+        "C": "2π² m/s²",
+        "D": "π² m/s²"
+      },
+      "correctAnswer": "A",
+      "explanation": "For circular motion, centripetal acceleration = v²/r = (2πr/T)²/r = 4π²r/T²",
+      "tags": ["circular-motion", "acceleration", "mechanics"]
+    },
+    {
+      "id": "PHYS002", 
+      "year": 2022,
+      "subject": "Physics",
+      "chapter": "Thermodynamics",
+      "difficulty": "Hard",
+      "question": "In an adiabatic process for an ideal gas, which of the following relationships is correct?",
+      "options": {
+        "A": "PV = constant",
+        "B": "PVᵞ = constant",
+        "C": "P/V = constant", 
+        "D": "PV² = constant"
+      },
+      "correctAnswer": "B",
+      "explanation": "In adiabatic process, PVᵞ = constant where γ is the ratio of specific heats",
+      "tags": ["thermodynamics", "adiabatic-process", "ideal-gas"]
+    }
+  ],
+  "chemistry": [
+    {
+      "id": "CHEM001",
+      "year": 2023,
+      "subject": "Chemistry", 
+      "chapter": "Organic Chemistry",
+      "difficulty": "Medium",
+      "question": "Which of the following is the correct IUPAC name for CH₃-CH(CH₃)-CH₂-OH?",
+      "options": {
+        "A": "1-methylpropan-1-ol",
+        "B": "2-methylpropan-1-ol",
+        "C": "1-methylpropan-3-ol",
+        "D": "3-methylpropan-1-ol"
+      },
+      "correctAnswer": "B",
+      "explanation": "Number the carbon chain from the end nearest to the OH group. The methyl substituent is at position 2",
+      "tags": ["organic-chemistry", "nomenclature", "alcohols"]
+    }
+  ],
+  "biology": [
+    {
+      "id": "BIO001",
+      "year": 2023,
+      "subject": "Biology",
+      "chapter": "Cell Biology", 
+      "difficulty": "Easy",
+      "question": "Which organelle is known as the 'powerhouse of the cell'?",
+      "options": {
+        "A": "Nucleus",
+        "B": "Ribosome",
+        "C": "Mitochondria",
+        "D": "Endoplasmic Reticulum"
+      },
+      "correctAnswer": "C",
+      "explanation": "Mitochondria generate ATP through cellular respiration, providing energy for cellular processes",
+      "tags": ["cell-biology", "organelles", "mitochondria"]
+    }
+  ]
+}

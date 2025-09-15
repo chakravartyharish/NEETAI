@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@neet/auth';
+import { useAuth, type AuthState } from '@neet/auth';
 
 interface AdminGuardProps {
   children: React.ReactNode;
@@ -12,6 +12,7 @@ export function AdminGuard({ children }: AdminGuardProps) {
   const { user, loading } = useAuth();
   const router = useRouter();
   const [checking, setChecking] = useState(true);
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
   useEffect(() => {
     if (!loading) {
@@ -21,14 +22,22 @@ export function AdminGuard({ children }: AdminGuardProps) {
         return;
       }
 
-      if (user.role !== 'admin') {
-        // Not an admin, redirect to unauthorized page
+      // Check if user has admin role or is authorized for admin access
+      const userRole = user.user_metadata?.role || user.app_metadata?.role;
+      const isAdmin = userRole === 'admin' || userRole === 'super_admin';
+
+      // For development, you might want to allow certain email domains
+      const isDevelopmentAdmin = process.env.NODE_ENV === 'development' &&
+        user.email?.endsWith('@neetai.dev');
+
+      if (isAdmin || isDevelopmentAdmin) {
+        setIsAuthorized(true);
+        setChecking(false);
+      } else {
+        // User is authenticated but not authorized for admin access
         router.replace('/auth/unauthorized');
         return;
       }
-
-      // User is authenticated and is an admin
-      setChecking(false);
     }
   }, [user, loading, router]);
 
@@ -44,6 +53,11 @@ export function AdminGuard({ children }: AdminGuardProps) {
     );
   }
 
-  // If we get here, user is authenticated and is an admin
-  return <>{children}</>;
+  // If we get here, user is authenticated and authorized for admin access
+  if (isAuthorized) {
+    return <>{children}</>;
+  }
+
+  // This should not be reached due to redirects above, but just in case
+  return null;
 }

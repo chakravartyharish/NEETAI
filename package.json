@@ -6,12 +6,29 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test": "turbo run test",
+    "test:e2e": "playwright test tests/e2e",
+    "test:integration": "jest tests/integration",
+    "test:unit": "jest tests/unit",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "testsprite:setup": "npx testsprite init",
+    "testsprite:run": "npx testsprite run --config testsprite.config.js",
+    "testsprite:report": "npx testsprite report"
   },
   "devDependencies": {
     "prettier": "^3.6.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "turbo": "^2.5.6"
+    "turbo": "^2.5.6",
+    "@playwright/test": "^1.40.0",
+    "@testsprite/mcp-server": "^1.0.0",
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/user-event": "^14.0.0",
+    "axe-playwright": "^1.2.0"
   },
   "engines": {
     "node": ">=18"
