@@ -70,13 +70,7 @@ function VerifyEmailContent() {
     setMessage('');
 
     try {
-      const { error } = await supabase.auth.resend({
-        type: 'signup',
-        email: email,
-        options: {
-          emailRedirectTo: `${window.location.origin}/auth/verify-email`
-        }
-      });
+      const { error } = await supabase.auth.resend();
 
       if (error) {
         setError('Failed to resend verification email. Please try again.');

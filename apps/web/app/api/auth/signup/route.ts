@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create student record
-    const { data: student, error: studentError } = await supabase
+    const { data: student, error: studentError } = await (supabase as any)
       .from('students')
       .insert({
         id: authData.user.id,
@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
         full_name,
         phone: phone || null,
         role,
-        tier: 'free',
+        tier: 'free' as const,
         onboarding_completed: false,
         preferences: {},
       })
@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create user profile
-    const { error: profileError } = await supabase
+    const { error: profileError } = await (supabase as any)
       .from('user_profiles')
       .insert({
         student_id: authData.user.id,
@@ -156,14 +156,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { 
         message: 'Account created successfully. Please check your email to verify your account.',
-        user: {
+        user: student ? {
           id: student.id,
           email: student.email,
           full_name: student.full_name,
           role: student.role,
           tier: student.tier,
           onboarding_completed: student.onboarding_completed,
-        }
+        } : null
       },
       { status: 201 }
     );
