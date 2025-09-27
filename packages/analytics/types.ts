@@ -1,4 +1,4 @@
-// Analytics Types - PRD v3 Requirements
+// Analytics Types - PRD v3 Requirements + Enhanced Workflow Metrics
 
 export interface UserAction {
   userId: string
@@ -6,6 +6,27 @@ export interface UserAction {
   properties?: Record<string, any>
   timestamp?: Date
   sessionId?: string
+}
+
+export interface WorkflowMetrics {
+  totalRuns: number
+  successRate: number
+  failedRuns: number
+  averageRunTime: number
+  criticalFailures: Array<{
+    workflowName: string
+    error: string
+    timestamp: string
+    runId?: string
+  }>
+  recommendations: string[]
+}
+
+export interface DeploymentMetrics {
+  totalDeployments: number
+  successRate: number
+  averageDeployTime: number
+  lastDeployment: any
 }
 
 export interface MetricsData {
@@ -32,4 +53,15 @@ export interface MetricsData {
     userSatisfaction: number
     costPerInteraction: number
   }
+  workflowMetrics: WorkflowMetrics
+  deploymentMetrics: DeploymentMetrics
+  performanceTargets?: {
+    scoreImprovement: number
+    neetPredictionAccuracy: number
+    studentEngagement: number
+    retentionRate: number
+    apiLatency: number
+    availability: number
+  }
+  lastUpdated: Date
 }
