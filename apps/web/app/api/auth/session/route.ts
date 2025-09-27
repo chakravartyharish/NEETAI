@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Get complete user data
-    const { data: student, error: studentError } = await supabase
+    const { data: student, error: studentError } = await (supabase as any)
       .from('students')
       .select(`
         *,
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
     // Return user data and session info
     return NextResponse.json(
       {
-        user: {
+        user: student ? {
           id: student.id,
           email: student.email,
           full_name: student.full_name,
@@ -59,7 +59,7 @@ export async function GET(request: NextRequest) {
           profile: student.user_profiles?.[0] || null,
           created_at: student.created_at,
           updated_at: student.updated_at,
-        },
+        } : null,
         session: {
           access_token: session.access_token,
           refresh_token: session.refresh_token,

@@ -264,7 +264,7 @@ export class ProcessingService {
       processingTime: Math.floor(Math.random() * 180) + 120,
       documentAnalysis: {
         isNEETFormat: Math.random() > 0.1,
-        contentQuality: (['excellent', 'good', 'fair'] as const)[Math.floor(Math.random() * 3)],
+        contentQuality: (['excellent', 'good', 'fair'] as const)[Math.floor(Math.random() * 3)] as string,
         estimatedQuestions: Math.floor(Math.random() * 60) + 40,
       },
     }

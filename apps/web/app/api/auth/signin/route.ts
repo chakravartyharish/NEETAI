@@ -66,13 +66,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Get additional user profile data
-    const { data: coachProfile } = await supabase
+    const { data: coachProfile } = await (supabase as any)
       .from('coach_users')
       .select('*')
       .eq('id', authData.user.id)
       .single();
 
-    const { data: userProfile } = await supabase
+    const { data: userProfile } = await (supabase as any)
       .from('comprehensive_user_profiles')
       .select('*')
       .eq('student_id', authData.user.id)
@@ -97,10 +97,10 @@ export async function POST(request: NextRequest) {
         user: {
           id: authData.user.id,
           email: authData.user.email,
-          full_name: coachProfile?.full_name || authData.user.user_metadata?.full_name || 'User',
-          role: coachProfile?.role || 'student',
-          avatar_url: coachProfile?.avatar_url || null,
-          institute_id: coachProfile?.institute_id || null,
+          full_name: coachProfile ? coachProfile.full_name || authData.user.user_metadata?.full_name || 'User' : authData.user.user_metadata?.full_name || 'User',
+          role: coachProfile ? coachProfile.role || 'student' : 'student',
+          avatar_url: coachProfile ? coachProfile.avatar_url || null : null,
+          institute_id: coachProfile ? coachProfile.institute_id || null : null,
           profile: userProfile || null,
           created_at: authData.user.created_at,
           updated_at: authData.user.updated_at,
