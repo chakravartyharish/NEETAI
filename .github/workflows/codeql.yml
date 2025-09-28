@@ -41,14 +41,31 @@ jobs:
           node-version: 20.x
           cache: 'npm'
 
+      - name: Set up security analysis environment
+        run: |
+          # Set required environment variables for builds during security analysis
+          echo "NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=dummy_key_for_security_scan" >> $GITHUB_ENV
+          echo "OPENAI_API_KEY=dummy_key_for_security_scan" >> $GITHUB_ENV
+          echo "NODE_ENV=production" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: |
-          npm ci --ignore-scripts
+          # Clean npm cache to avoid stale conflicts
+          npm cache clean --force
           
-      - name: Build the project
+          # Install with legacy peer deps to resolve conflicts  
+          npm ci --legacy-peer-deps --ignore-scripts
+          
+      - name: Build for analysis (optional)
+        continue-on-error: true
         run: |
-          # Build without running tests to speed up analysis
-          npm run build --if-present
+          # Use custom security build script for CodeQL analysis
+          chmod +x ./scripts/security-build.sh
+          ./scripts/security-build.sh
+        env:
+          # Set Node options to handle memory and legacy issues
+          NODE_OPTIONS: "--max-old-space-size=4096"
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Card } from "@repo/ui/card";
-import { Gradient } from "@repo/ui/gradient";
+import { Card } from "@neet/ui/card";
+import { Gradient } from "@neet/ui/gradient";
 
 const FEATURES = [
   {

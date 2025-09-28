@@ -1,9 +1,6 @@
-import "@repo/ui/styles.css";
+import "@neet/ui/styles.css";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-
-const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "NEET Prep AI - India's Most Intelligent NEET Preparation Platform",
@@ -17,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={geist.className}>{children}</body>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }
